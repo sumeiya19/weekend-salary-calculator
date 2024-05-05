@@ -11,6 +11,8 @@
 
 // Create function for submit button
 
+let totalMonthlyCost = 0;
+
 function handleSubmit(event){
     console.log('handleSubmit () works!');
     event.preventDefault();
@@ -24,11 +26,12 @@ let jobTitle = document.getElementById("jobTitle").value
 console.log(`job title check ${jobTitle}`);
 let annualSalary = document.getElementById("annualSalary").value
 console.log(`annual salary check ${annualSalary}`);
-//let totalMonthlyCost = document.getElementById("totalMonthly").textContent
-//console.log('test', TotalMonthlyCost);
-//for (let i = 0; i < annualSalary.length; i++){
-  //  totalMonthlyCost += jobTitle[i].annualSalary
-//}
+let totalMonthly=document.getElementById("footerText")
+let monthlySalary = annualSalary / 12;
+totalMonthlyCost += Number(monthlySalary)
+totalMonthly.innerHTML = Number(totalMonthlyCost)
+
+
 
 
 let employeeTable = document.getElementById("employeeTable")
@@ -42,7 +45,6 @@ employeeTable.innerHTML +=
 <td>${annualSalary}</td>
 <td>
 <button onClick="deleteRow(event)">Delete</button>
-${firstName} ${lastName} ${employeeNumber} ${jobTitle} ${annualSalary}
 </td>
 </tr>
 `
@@ -59,8 +61,8 @@ document.getElementById("annualSalary").value = ""
 // Function to delete row
 
 function deleteRow(event) {
-    console.log("deleteTask() works...")
-    let thisRow = event.target.parentElement;
+    console.log("deleteRow() works...")
+    let thisRow = event.target.parentElement.parentElement;
     console.log("Row to be deleted is...", thisRow)
     thisRow.remove()
 }  
