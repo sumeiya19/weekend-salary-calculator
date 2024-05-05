@@ -26,10 +26,15 @@ let jobTitle = document.getElementById("jobTitle").value
 console.log(`job title check ${jobTitle}`);
 let annualSalary = document.getElementById("annualSalary").value
 console.log(`annual salary check ${annualSalary}`);
-let totalMonthly=document.getElementById("footerText")
 let monthlySalary = annualSalary / 12;
 totalMonthlyCost += Number(monthlySalary)
-totalMonthly.innerHTML = Number(totalMonthlyCost)
+let footer=document.getElementById("footerText")
+footer.innerHTML = Number(totalMonthlyCost)
+if (totalMonthlyCost > 20000) {
+    footer.classList.add("overBudget");
+} else {
+    footer.classList.remove("overBudget");
+}
 
 
 
