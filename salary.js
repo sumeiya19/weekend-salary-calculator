@@ -24,6 +24,11 @@ let jobTitle = document.getElementById("jobTitle").value
 console.log(`job title check ${jobTitle}`);
 let annualSalary = document.getElementById("annualSalary").value
 console.log(`annual salary check ${annualSalary}`);
+//let totalMonthlyCost = document.getElementById("totalMonthly").textContent
+//console.log('test', TotalMonthlyCost);
+//for (let i = 0; i < annualSalary.length; i++){
+  //  totalMonthlyCost += jobTitle[i].annualSalary
+//}
 
 
 let employeeTable = document.getElementById("employeeTable")
@@ -35,7 +40,27 @@ employeeTable.innerHTML +=
 <td>${employeeNumber}</td>
 <td>${jobTitle}</td>
 <td>${annualSalary}</td>
-<td></td>
+<td>
+<button onClick="deleteRow(event)">Delete</button>
+${firstName} ${lastName} ${employeeNumber} ${jobTitle} ${annualSalary}
+</td>
 </tr>
 `
+document.getElementById("firstName").value = ""
+document.getElementById("lastName").value = ""
+document.getElementById("employeeNumber").value = ""
+document.getElementById("jobTitle").value = ""
+document.getElementById("annualSalary").value = ""
 }
+
+// Function to calculate total monthly cost
+// sum all values in the annual salaries column and divide by 12
+
+// Function to delete row
+
+function deleteRow(event) {
+    console.log("deleteTask() works...")
+    let thisRow = event.target.parentElement;
+    console.log("Row to be deleted is...", thisRow)
+    thisRow.remove()
+}  
