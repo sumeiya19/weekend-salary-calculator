@@ -25,7 +25,8 @@ header {
   footer {
     height: 15em;
     background-color: #dcdcdc;
-    text-align: center;
+    text-align: right;
+    font-size: large;
   }
 
   /* FORM ELEMENTS */
